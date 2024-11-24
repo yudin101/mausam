@@ -1,0 +1,28 @@
+.forecastBox {
+	text-align: center;
+	margin: 5px;
+	padding: 10px;
+}
+
+.fbTime {
+	font-size: 15px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.fbTemp {
+	font-size: 30px;
+	font-weight: 700;
+	color: #c4cad3;
+}
+
+.forecastBox img {
+		width: 80px;
+}
+
+@media (max-width: 400px) {
+	.forecastBox {
+		margin: 7px;
+		padding: 0;
+	}
+}

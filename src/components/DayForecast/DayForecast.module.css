@@ -1,0 +1,30 @@
+.dayBox {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 10px;
+	list-style: none;
+}
+
+.dayName {
+	font-size: 13px;
+}
+
+.dayDesc {
+	display: flex;
+	align-items: center;
+	color: #c4cad3;
+	font-weight: 700;
+}
+
+.dayDesc img {
+	width: 50px;
+}
+
+.dayTemp {
+	font-weight: 700;
+}
+
+.dayTemp span {
+	color: #c4cad3;
+}

@@ -1,0 +1,172 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: #0b121e;
+	color: white;
+}
+
+#root {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding: 20px;
+	margin: 10px;
+}
+
+
+
+/*CSS for the container on the left side*/
+
+
+.leftBox {
+	width: 50%;
+}
+
+.inputBox {
+	margin-bottom: 50px;
+	display: flex;
+}
+
+.inputBox input {
+	width: 90%;
+	background-color: #1f2b38;
+	color: white;
+	padding: 5px 10px;
+	font-size: 17px;
+	border: 2px solid #1f2b38;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	outline: none;
+}
+
+.inputBox input:focus {
+	border-color: gray;
+}
+
+.inputBox button {
+	color: white;
+	background-color: #1f2b38;
+	padding: 0 20px;
+	border: none;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.inputBox button:hover {
+	background-color: #2e4054;
+}
+
+.inputBox button:active {
+	background-color: #19232e;
+}
+
+
+
+
+.mainWeatherBox {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 35px;
+}
+
+.textBox {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.weatherImg {
+	width: 30%;
+}
+
+.cityText {
+	color: #dde0e4;
+	font-size: 27px;
+}
+
+.tempText {
+	font-size: 60px;
+}
+
+.infoBoxContainer {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+
+
+/*CSS for the container on the right side*/
+
+
+.rightBox h6 {
+	font-size: 10px;
+}
+
+.timeForecast {
+	background-color: #202b3b;
+	padding: 15px 25px;
+	border-radius: 10px;
+	color: #9399a2;
+}
+
+.timeForecastBox {
+	display: flex;
+}
+
+
+
+
+.dayForecast {
+	color: #9399a2;
+	background-color: #202b3b;
+	padding: 20px;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+
+
+@media (max-width: 1080px) {
+	#root {
+		margin-top: 20px;
+		padding: 0;
+	}
+
+	.leftBox {
+		width: auto;
+	}
+
+	.inputBox {
+		margin-bottom: 30px;
+	}
+
+	.weatherImg {
+		width: 20%;
+	}
+
+	.cityText {
+		font-size: 20px;
+	}
+
+	.tempText {
+		font-size: 45px;
+	}
+
+	.infoBoxContainer {
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 600px) {
+	.weatherImg {
+		width: 50%;
+	}
+}

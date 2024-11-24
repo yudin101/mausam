@@ -1,0 +1,39 @@
+.infoBox {
+	color: #9399a2;
+	width: 42%;
+	background-color: #202b3b;
+	margin: 5px;
+	display: flex;
+	align-items: flex-start;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.infoIcon {
+	font-size: 20px;
+	margin: 0 10px;
+}
+
+.infoValue {
+	color: #c4cad3;
+}
+
+@media (max-width: 1310px) {
+	.infoBox {
+		width: 40%;
+		padding: 10px;
+	}
+
+	.infoIcon {
+		font-size: 15px;
+		margin: 0 5px;
+	}
+
+	.infoTextBox h5 {
+		font-size: 11px;
+	}
+
+	.infoValue {
+		font-size: 19px;
+	}
+}

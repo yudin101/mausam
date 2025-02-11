@@ -30,12 +30,18 @@ function App() {
   const weatherUrlCity = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
   const forecastUrlCity = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`;
 
+  function displayError(msg) {
+    setErrorMsg(msg);
+    timeoutRef.current = setTimeout(() => setErrorMsg(""), 3000);
+  }
+
   async function fetchData(url, type) {
     try {
       let response = await fetch(url);
 
       if (!response.ok) {
         if (response.status === 404) {
+          displayError("cityNotFound");
           throw new Error("City not found. Please check the city name.");
         }
         throw new Error("HTTP error! status:", response.status);
@@ -63,9 +69,8 @@ function App() {
       (error) => {
         setLat(27.7103);
         setLon(85.3222);
-        console.log("Error getting location:", error.message);
-        setErrorMsg("locationError");
-        timeoutRef.current = setTimeout(() => setErrorMsg(""), 3000);
+        console.error("Error getting location:", error.message);
+        displayError("locationError");
       },
     );
 
@@ -104,9 +109,13 @@ function App() {
     return `${Math.floor(temp - 273.15)}°`;
   }
 
-  function citySearch() {
-    fetchData(weatherUrlCity, 0);
-    fetchData(forecastUrlCity, 1);
+  function citySearch(e) {
+    e.preventDefault();
+
+    if (city) {
+      fetchData(weatherUrlCity, 0);
+      fetchData(forecastUrlCity, 1);
+    }
   }
 
   // This is for the MainWeather container
@@ -171,20 +180,21 @@ function App() {
   return (
     <>
       <div className={`error-box ${errorMsg ? "show" : ""}`}>
-        There was an error getting your location!
+        An error occured! <br />
+        {errorMsg}
       </div>
       <div className="leftBox">
-        <div className="inputBox">
+        <form className="inputBox" onSubmit={(e) => citySearch(e)}>
           <input
             id="citySearchInput"
             onChange={(e) => setCity(e.target.value)}
             type="text"
             placeholder="Search for cities"
           />
-          <button onClick={citySearch}>
+          <button type="submit">
             <FontAwesomeIcon icon={faSearch} />
           </button>
-        </div>
+        </form>
 
         <div className="mainWeatherBox">
           <div className="textBox">
